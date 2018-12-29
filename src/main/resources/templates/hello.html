@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--引入Bootstrap-->
+    <link rel="stylesheet" type="text/css"  href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+    <script type="text/javascript" src="../static/js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
+
+    <!--引入JQuery-->
+    <script type="text/javascript" src="../static/js/jquery.js " th:src="@{/js/jquery.js}"></script>
+
+    <!--引入layui-->
+    <link rel="stylesheet" href="../static/css/layui.css" th:href="@{/css/layui.css}"/>
+
+    <!--引入zTree-->
+    <link rel="stylesheet" href="../static/css/zTreeStyle/demo.css" type="text/css" th:href="@{/css/zTreeStyle/demo.css}"/>
+    <link rel="stylesheet" href="../static/css/zTreeStyle/zTreeStyle.css" type="text/css" th:href="@{/css/zTreeStyle/zTreeStyle.css}"/>
+    <script type="text/javascript" src="../static/js/jquery.ztree.core.js" th:src="@{/js/jquery.ztree.core.js}"></script>
+
+    <!--引入JQuery validate-->
+    <script src="../static/js/jquery.validate.js" th:src="@{/js/jquery.validate.js}"></script>
+    <script src="../static/js/messages_zh.js" th:src="@{/js/messages_zh.js}"></script>
+
+    <!--引入web uploader-->
+    <link rel="stylesheet" href="../static/css/webuploader.css" th:href="@{/css/webuploader.css}"/>
+    <script src="../static/js/webuploader.js" th:src="@{/js/webuploader.js}"></script>
+
+    <!--引入ueditor-->
+    <script src="../static/js/ueditor/js/ueditor.config.js" th:src="@{/js/ueditor/js/ueditor.config.js}"></script>
+    <script src="../static/js/ueditor/js/ueditor.all.js" th:src="@{/js/ueditor/js/ueditor.all.js}"></script>
+
+    <!--引入toastr-->
+    <script src="../static/js/toastr.js" th:src="@{/js/toastr.js}"></script>
+    <link href="../static/css/toastr.css" th:href="@{/css/toastr.css}"/>
+</head>
+<body>
+
+
+
+
+<H1 class="text-center">Spring MVC 传值测试</H1>
+        <p class="text-center" th:text="'Hello, ' + ${name}" ></p>
+<hr/>
+
+
+
+
+
+
+<H1 class="text-center">集成Bootstrap实例</H1>
+        <table class="table table-striped">
+            <caption class="text-center">条纹表格布局</caption>
+            <thead>
+            <tr>
+                <th>名称</th>
+                <th>城市</th>
+                <th>邮编</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Tanmay</td>
+                <td>Bangalore</td>
+                <td>560001</td>
+            </tr>
+            <tr>
+                <td>Sachin</td>
+                <td>Mumbai</td>
+                <td>400003</td>
+            </tr>
+            <tr>
+                <td>Uma</td>
+                <td>Pune</td>
+                <td>411027</td>
+            </tr>
+            </tbody>
+        </table>
+        <hr>
+
+
+
+
+<H1 class="text-center">集成JQuery实例</H1>
+                <p class="text-center">以下实例演示了 fadeIn() 使用了不同参数的效果。</p>
+                <div class="container">
+                    <div class="jumbotron">
+                <button >点击淡入 div 元素。</button>
+                <br><br>
+                <div  id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+                <div  id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
+                <div  id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+                        <script>
+                            $(document).ready(function(){
+                                $("button").click(function(){
+                                    $("#div1").fadeIn();
+                                    $("#div2").fadeIn("slow");
+                                    $("#div3").fadeIn(3000);
+                                });
+                            });
+                        </script>
+                    </div>
+                </div>
+
+<hr>
+
+
+
+
+<h1 class="text-center">集成Latui实例</h1>
+            <p class="text-center"> 是一款采用自身模块规范编写的前端 UI 框架，遵循原生 HTML/CSS/JS 的书写与组织形式，门槛极低，拿来即用</p>
+            <ul class="layui-nav" lay-filter="">
+                <li class="layui-nav-item"><a href="">最新活动</a></li>
+                <li class="layui-nav-item layui-this"><a href="">产品</a></li>
+                <li class="layui-nav-item"><a href="">大数据</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">解决方案</a>
+                    <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                        <dd><a href="">移动模块</a></dd>
+                        <dd><a href="">后台模版</a></dd>
+                        <dd><a href="">电商平台</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">社区</a></li>
+            </ul>
+            <script src="/static.js/layui.all.js"></script>
+            <script>
+                //由于模块都一次性加载，因此不用执行 layui.use() 来加载对应模块，直接使用即可：
+                ;!function(){
+                    var layer = layui.layer
+                        ,form = layui.form;
+
+                    layer.msg('Hello World');
+                }();
+            </script>
+            <hr/>
+
+
+
+
+<h1 class="text-center">集成zTree实例</h1>
+    <p class="text-center">zTree 是一个依靠 jQuery 实现的多功能 “树插件”。优异的性能、灵活的配置、多种功能的组合是 zTree 最大优</p>
+    <div class="container">
+        <div>
+            <ul id="treeDemo" class="ztree"></ul>
+        </div>
+        <SCRIPT LANGUAGE="JavaScript">
+            var zTreeObj;
+            // zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
+            var setting = {};
+            // zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）
+            var zNodes = [
+                {name:"test1", open:true, children:[
+                        {name:"test1_1"}, {name:"test1_2"}]},
+                {name:"test2", open:true, children:[
+                        {name:"test2_1"}, {name:"test2_2"}]}
+            ];
+            $(document).ready(function(){
+                zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+            });
+        </SCRIPT>
+    </div>
+<hr/>
+
+
+
+
+<h1 class="text-center">集成JqGrid实例</h1>
+        <p class="text-center">JQGrid是一个在jquery基础上做的一个表格控件，以ajax的方式和服务器端通信。</p>
+        <div class="container">
+        </div>
+        <hr/>
+
+
+
+
+
+<h1 class="text-center">集成jQuery Validate实例</h1>
+        <p class="text-center">jQuery Validate 插件为表单提供了强大的验证功能，让客户端表单验证变得更简单，同时提供了大量的定制选项，满足应用程序各种需求。该插件捆绑了一套有用的验证方法，包括 URL 和电子邮件验证</p>
+        <div class="container">
+            <style>
+                #commentForm {
+                    width: 500px;
+                }
+                #commentForm label {
+                    width: 250px;
+                }
+                #commentForm label.error, #commentForm input.submit {
+                    margin-left: 253px;
+                }
+                #signupForm {
+                    width: 670px;
+                }
+                #signupForm label.error {
+                    margin-left: 10px;
+                    width: auto;
+                    display: inline;
+                }
+                #newsletter_topics label.error {
+                    display: none;
+                    margin-left: 103px;
+                }
+            </style>
+            <form class="cmxform" id="commentForm" method="get" action="">
+                <fieldset>
+                    <legend>Please provide your name, email address (won't be published) and a comment</legend>
+                    <p>
+                        <label for="cname">Name (required, at least 2 characters)</label>
+                        <input id="cname" name="name" minlength="2" type="text" required>
+                    </p>
+                    <p>
+                        <label for="cemail">E-Mail (required)</label>
+                        <input id="cemail" type="email" name="email" required>
+                    </p>
+                    <p>
+                        <label for="curl">URL (optional)</label>
+                        <input id="curl" type="url" name="url">
+                    </p>
+                    <p>
+                        <label for="ccomment">Your comment (required)</label>
+                        <textarea id="ccomment" name="comment" required></textarea>
+                    </p>
+                    <p>
+                        <input class="submit" type="submit" value="Submit">
+                    </p>
+                </fieldset>
+            </form>
+        </div>
+        <hr/>
+
+
+
+
+<h1 class="text-center">集成WebUpLoader实例</h1>
+    <p class="text-center">文件上传组件</p>
+    <div class="container">
+        <div id="uploader" class="wu-example">
+            <!--用来存放文件信息-->
+            <div id="thelist" class="uploader-list"></div>
+                <div class="btns">
+                    <div id="picker">选择文件</div>
+                    <button id="ctlBtn" class="btn btn-default">开始上传</button>
+                </div>
+        </div>
+        <script>
+            var uploader = WebUploader.create({
+                // swf文件路径
+                swf: BASE_URL + '../static/js/Uploader.swf',
+                // 文件接收服务端。
+                server: 'http://webuploader.duapp.com/server/fileupload.php',
+                // 选择文件的按钮。可选。
+                // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+                pick: '#picker',
+                // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+                resize: false
+            });
+            // 当有文件被添加进队列的时候
+            uploader.on( 'fileQueued', function( file ) {
+                $list.append( '<div id="' + file.id + '" class="item">' +
+                    '<h4 class="info">' + file.name + '</h4>' +
+                    '<p class="state">等待上传...</p>' +
+                    '</div>' );
+            });
+            // 文件上传过程中创建进度条实时显示。
+            uploader.on( 'uploadProgress', function( file, percentage ) {
+                var $li = $( '#'+file.id ),
+                    $percent = $li.find('.progress .progress-bar');
+                // 避免重复创建
+                if ( !$percent.length ) {
+                    $percent = $('<div class="progress progress-striped active">' +
+                        '<div class="progress-bar" role="progressbar" style="width: 0%">' +
+                        '</div>' +
+                        '</div>').appendTo( $li ).find('.progress-bar');
+                }
+                $li.find('p.state').text('上传中');
+                $percent.css( 'width', percentage * 100 + '%' );
+            });
+            uploader.on( 'uploadSuccess', function( file ) {
+                $( '#'+file.id ).find('p.state').text('已上传');
+            });
+            uploader.on( 'uploadError', function( file ) {
+                $( '#'+file.id ).find('p.state').text('上传出错');
+            });
+            uploader.on( 'uploadComplete', function( file ) {
+                $( '#'+file.id ).find('.progress').fadeOut();
+            });
+        </script>
+    </div>
+    <hr/>
+
+
+
+<h1 class="text-center">集成Ueditor实例</h1>
+        <p class="text-center">UEditor 是一套开源的在线HTML编辑器,主要用于让用户在网站上获得所见即所得编辑效果</p>
+        <div class="container">
+            <form >
+                <div>
+                    <script id="container" name="content" type="text/plain">
+
+                    </script>
+                </div>
+            </form>
+            <script type="text/javascript">
+                var editor = UE.getEditor('container');
+            </script>
+        </div>
+        <hr/>
+
+
+<h1 class="text-center">集成toastr</h1>
+        <p class="text-center">toastr是一个基于jQuery简单、漂亮的消息提示插件，使用简单、方便，可以根据设置的超时时间自动消失。</p>
+        <div class="container">
+            <script>
+                    $(function(){
+                        toastr.options= {
+                            "closeButton":false,//显示关闭按钮
+                            "debug":false,//启用debug
+                            "positionClass":"toast-top-center",//弹出的位置
+                            "showDuration":"300",//显示的时间
+                            "hideDuration":"1000",//消失的时间
+                            "timeOut":"5000",//停留的时间
+                            "extendedTimeOut":"1000",//控制时间
+                            "showEasing":"swing",//显示时的动画缓冲方式
+                            "hideEasing":"linear",//消失时的动画缓冲方式
+                            "showMethod":"fadeIn",//显示时的动画方式
+                            "hideMethod":"fadeOut"//消失时的动画方式
+                        };
+                        $("#success").click(function(){
+                            toastr.success("成功样式");
+                        })
+                        $("#info").click(function(){
+                            toastr.info("提示样式");
+                        })
+                        $("#warning").click(function(){
+                            toastr.warning("警告样式");
+                        })
+                        $("#error").click(function(){
+                            toastr.error("错误样式");
+                        })
+                        $("#clear").click(function(){
+                            toastr.clear();//清楚当前页面弹出框
+                        })
+                    });
+            </script>
+
+            <button class="btn btn-success" name="success"id="success"> 成功 </button>
+            <button class="btn btn-info" name="info"id="info">提示</button>
+            <button class="btn btn-warning" name="warning"id="warning">警告</button>
+            <button class="btn btn-danger" name="error"id="error">错误</button>
+            <button class="btn btn-primary" name="clear"id="clear">清除</button>
+        </div>
+</body>
+</html>
